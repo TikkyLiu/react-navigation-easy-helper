@@ -4,8 +4,6 @@
  * GitHub:https://github.com/puti94
  * Email:1059592160@qq.com
  */
-
-
 import React, {Component} from 'react'
 import {RouteHelper} from './RouteHelper'
 import hoistNonReactStatics from 'hoist-non-react-statics'
@@ -38,10 +36,9 @@ export const addToRouteStack = (OldComponent) => {
         _bindRef = (ref) => this.pageComponent = ref;
 
         render() {
-            return <OldComponent
-                ref={this._bindRef}
-                {...this.props}
-                {...this.props.navigation.state.params}
+            return <OldComponentref={this._bindRef}
+            {...this.props}
+            {...this.props.navigation.state.params}
             />
         }
     }

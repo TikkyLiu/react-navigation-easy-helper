@@ -2,9 +2,7 @@
  * Created by puti on 2017/11/1.
  * 路由管理类
  */
-
 import {NavigationActions, StackActions} from 'react-navigation'
-
 
 export class RouteHelper {
     //app唯一导航组件的实例  修复goBackTo()方法返回是navigation不能继续goBack()的bug
@@ -132,15 +130,17 @@ export class RouteHelper {
      * 重置路由,只重置一页,如需自定义重置路由。参照写法自己写
      * @param routeName
      */
-    static reset(routeName) {
+    static reset(routeName, params = {}) {
         const reset = (NavigationActions && NavigationActions.reset) || StackActions.reset;
         let resetAction = reset({
             index: 0,
             actions: [
-                NavigationActions.navigate({routeName: routeName})
+                NavigationActions.navigate({
+                    routeName: routeName,
+                    params
+                })
             ]
         });
         this.navigation.dispatch(resetAction);
     }
 }
-
