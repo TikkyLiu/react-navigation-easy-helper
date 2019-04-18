@@ -36,7 +36,7 @@ export const addToRouteStack = (OldComponent) => {
         _bindRef = (ref) => this.pageComponent = ref;
 
         render() {
-            return <OldComponentref={this._bindRef}
+            return <OldComponent ref={this._bindRef}
             {...this.props}
             {...this.props.navigation.state.params}
             />
